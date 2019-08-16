@@ -1,9 +1,9 @@
 # Aprendizaje no supervisado
 
-[Repo](AprendizajeNOSupervisado/) de la clase. 
+[Repo](https://github.com/DiploDatos/AprendizajeNOSupervisado/) de la clase. 
 
 # Práctico
-Especificado en el README del [repo](AprendizajeNOSupervisado/README.md).  
+Especificado en el README del [repo](https://github.com/DiploDatos/AprendizajeNOSupervisado/blob/master/README.md).  
 
 # Notas de clase
 
