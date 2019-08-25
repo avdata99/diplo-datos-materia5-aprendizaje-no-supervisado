@@ -12,7 +12,7 @@ parser.add_argument("--min_support", type=float, help="Min support", required=Tr
 parser.add_argument("--max_length", type=int, default=2, help="Max length")
 parser.add_argument("--min_confidence", type=float, help="Min confidence", required=True)
 parser.add_argument("--min_lift", type=int, default=4, help="Min lift to count")
-parser.add_argument("--truncate_transactions", type=int, default=4, help="truncate total transactions (for local test)")
+parser.add_argument("--truncate_transactions", type=int, default=0, help="truncate total transactions (for local test)")
 
 args = parser.parse_args()
 
