@@ -63,8 +63,7 @@ Debido a los lento de este proceso el argumento _max_length_ se uso siempre en 2
 Localmente siempre con `--min_support=0.001`, `--min_confidence=0.7`, `--min_lift=4` `--truncate_transactions=1000`, `--max_length=2` y `--truncate_ratings=1000`
 Esto genera solo 52 transacciones y los tiempos son:
  - 54 segundos con `--max_length=2`
- - XX minutos con `--max_length=3`
- 
+ - Con `--max_length=3` lo suspendí despues de una hora de procesamiento.
 
 En el CCAD y corriendo con la única limitacion `--max_length=2` se analizan 131.839 transacciones el tiempo total fue de XXX.  
 
