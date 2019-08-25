@@ -65,7 +65,7 @@ Esto genera solo 52 transacciones y los tiempos son:
  - 54 segundos con `--max_length=2`
  - Con `--max_length=3` lo suspendí despues de una hora de procesamiento.
 
-En el CCAD y corriendo con la única limitacion `--max_length=2` se analizan 131.839 transacciones el tiempo total fue de XXX.  
+En el CCAD y corriendo con la única limitacion `--max_length=2` se analizan 131.839 transacciones el tiempo total fue de 6.2 horas y genero 55 reglas.  
 
 
 ## Generos
