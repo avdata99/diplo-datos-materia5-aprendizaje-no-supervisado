@@ -13,6 +13,7 @@ parser.add_argument("--max_length", type=int, default=2, help="Max length")
 parser.add_argument("--min_confidence", type=float, help="Min confidence", required=True)
 parser.add_argument("--min_lift", type=int, default=4, help="Min lift to count")
 parser.add_argument("--truncate_transactions", type=int, default=0, help="truncate total transactions (for local test)")
+parser.add_argument("--data_folder", type=str, help="data folder"., required=True)
 
 args = parser.parse_args()
 
@@ -46,7 +47,7 @@ args = parser.parse_args()
 """
 
 data_folder = '/media/hudson/Elements/data/DiploDatos-aprendizaje-no-supervizado/ml-20m'
-# data_folder = 'ml-20m'
+data_folder = 'ml-20m'
 movies_path = os.path.join(data_folder, 'movies.csv')
 ratings_path = os.path.join(data_folder, 'ratings.csv')
 
