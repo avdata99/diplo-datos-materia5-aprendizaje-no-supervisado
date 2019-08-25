@@ -88,7 +88,7 @@ if args.truncate_ratings > 0:
 # tomo al "userid" como el identificador de transaccion.
 # Interpreto que lo cada uusario vio y valoro positivamente es un "compra"
 # Quitar el rating que no es necesario
-ratings_cleaned = ratings.drop(columns=['rating']).sort_values(by=['userId', 'movieId'])
+ratings_cleaned = ratings_good.drop(columns=['rating']).sort_values(by=['userId', 'movieId'])
 
 transactions = list(ratings_cleaned.groupby('userId')['movieId'].apply(list))
 
@@ -96,8 +96,8 @@ transactions = ratings_cleaned.values.tolist()
 if args.truncate_transactions > 0:
     print('******\n******\nTRUNCATE TRANSACTIONS TO {}******\n******\n'.format(args.truncate_transactions))
     transactions = transactions[:args.truncate_transactions]
-    print(transactions[0])
-print('First transaction: {}'.format(transactions[0]))
+
+print('Primeras transacciones: {}'.format(transactions[:100]))
 
 print('Transacciones encontradas: {}'.format(len(transactions)))
 
@@ -164,10 +164,11 @@ for jrule in selected_rules:
     txt = ('Con una coinfianza de {} (y lift {}) '
             'a los que le gusto la película "{}" '
             'les gusto tambien "{}"\n'.format(jrule['conf'],
-                                          jrule['lift'],
-                                          jrule['izq_title'],
-                                          jrule['der_title'],
-                                          ))
+                                              jrule['lift'],
+                                              jrule['izq_title'],
+                                              jrule['der_title'],
+                                              )
+          )
     f.write(txt)
     if len(selected_rules) < 20:
         print(txt)
