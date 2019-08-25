@@ -46,8 +46,10 @@ args = parser.parse_args()
     1,253,4.0,1112484940
 """
 
-data_folder = '/media/hudson/Elements/data/DiploDatos-aprendizaje-no-supervizado/ml-20m'
-data_folder = 'ml-20m'
+# mi computer data_folder = '/media/hudson/Elements/data/DiploDatos-aprendizaje-no-supervizado/ml-20m'
+# CCAD computer data_folder = 'ml-20m'
+data_folder = args.data_folder
+
 movies_path = os.path.join(data_folder, 'movies.csv')
 ratings_path = os.path.join(data_folder, 'ratings.csv')
 
