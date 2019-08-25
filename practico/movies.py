@@ -128,6 +128,9 @@ for rule in rules:
         if len(selected_rules) < 20:
             print(rule) # Prints the rule and its confidence, support, lift, ...
 
+if len(selected_rules) == 0:
+    raise Exception('NO SE ENCONTRARON REGLAS!')
+
 print('Reglas encontradas: {}'.format(len(selected_rules)))
 
 f = open('rules.csv', 'w')
