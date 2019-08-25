@@ -16,7 +16,7 @@ Se hizo una exploración de datos en un _notebook_ que puede verse [aquí](movie
 Hay más de 27.000 películas y 20.000.000 de calificaciones de 138.000 usuarios.
 ![rating_bars](imgs/rating_bars.png)
 
-Se definen a las transacciones como la lista de películas que cada usuario valoro con 5 puntos. De esta forma pasamos de una lista de 20.000.000 de calificaciones a una de menos de 3.000.000. Con más capacidad de cómputo esto podría ampiarse (solo deberá usarse el parámetro _min_rating_ en el script entregado seteado en 4 o 3 por ejemplo).  
+Se definen a las transacciones como la lista de películas que cada usuario valoro con 5 puntos. De esta forma pasamos de una lista de 20.000.000 de calificaciones a una de menos de 3.000.000 (Y DE 16.500.000 con ratings de hasta 3). Con más capacidad de cómputo esto podría ampiarse (solo deberá usarse el parámetro _min_rating_ en el script entregado seteado en 4 o 3 por ejemplo).  
 
 Como el procesamiento requerido excede el de la computadora local se uso un equipo de CCAD. Para eso se genero [un script](movies.py) en python al que vía parámetros se le pueden indicar:
  - el soporte mínimo
@@ -65,7 +65,9 @@ Esto genera solo 52 transacciones y los tiempos son:
  - 54 segundos con `--max_length=2`
  - Con `--max_length=3` lo suspendí despues de una hora de procesamiento.
 
-En el CCAD y corriendo con la única limitacion `--max_length=2` se analizan 131.839 transacciones el tiempo total fue de 6.2 horas y genero 55 reglas.  
+En el CCAD y corriendo con la única limitacion `--max_length=2`
+ - y `--min_rating=5` se analizan 131.839 transacciones en un tiempo total fue de 6.2 horas y genero [55 reglas](rules-sup0.001-conf0.7-length2-rating5.csv).
+ - además con `--min_rating=3` se analizaron 138.445 transacciones en un tiempo total de X horas y generó [XX reglas](rules-sup0.001-conf0.7-length2-rating3.csv)
 
 
 ## Generos
