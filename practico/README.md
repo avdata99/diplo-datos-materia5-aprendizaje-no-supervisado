@@ -53,6 +53,8 @@ python3 movies.py \
 
 Este script graba un archivo CSV con recomendaciones posibles para las películas sobre las cuales podemos recomendar. De manera simple y dado el ID de alguna película podríamos listar por nivel de confianza y _lift_ usa serie de películas recomendadas.  
 
+![csv_final.png](imgs/csv_final.png)
+
 ### Mejoras posibles
 
 Debido a los lento de este proceso el argumento _max_length_ se uso siempre en 2. Esto solo permite analizar las peliculas individualmente y no en grupos. Con más caṕacidad de cómputo sumplemente debe pasarse a 4 (por ejmplo) para generar recomendaciones mas complejas.
