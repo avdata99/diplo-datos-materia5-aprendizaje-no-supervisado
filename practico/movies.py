@@ -141,14 +141,6 @@ for jrule in selected_rules:
     writer.writerow(jrule)
 f.close()
 
-"""
-import json
-jrules_str = json.dumps(selected_rules, indent=2)
-f = open('jrules.json', 'w')
-f.write(jrules_str)
-f.close()
-"""
-
 # ver que peliculas son 
 f = open('summary.txt', 'w')
 for jrule in selected_rules:
