@@ -9,7 +9,7 @@ Hacer un pequeño informe (entre 200 y 500 palabras): https://rpubs.com/vitidN/2
 
 ## Solucion
 
-Se hizo una exploración de datos en un _notebook_ que puede verse [aquí](https://github.com/avdata99/diplo-datos-materia5-aprendizaje-no-supervisado/blob/master/practico/movies.ipynb).
+Se hizo una exploración de datos en un _notebook_ que puede verse [aquí](movies.ipynb).
 
 ### Algunos detalles
 
@@ -19,7 +19,7 @@ Hay más de 27.000 películas y 20.000.000 de calificaciones de 138.000 usuarios
 Se definen a las transacciones como la lista de películas que cada usuario valoro con 5 puntos. De esta forma pasamos de una lista de 20.000.000 de calificaciones a una de menos de 3.000.000.  
 
 
-Como el procesamiento requerido excede el de la computadora local se uso un equipo de CCAD. Para eso se genero un script en python al que vía parámetros se le pueden indicar:
+Como el procesamiento requerido excede el de la computadora local se uso un equipo de CCAD. Para eso se genero [un script](movies.py) en python al que vía parámetros se le pueden indicar:
  - el soporte mínimo
  - la minima confianza
  - el mínimo _lift_ aceptado
