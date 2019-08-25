@@ -9,7 +9,7 @@ Hacer un pequeño informe (entre 200 y 500 palabras): https://rpubs.com/vitidN/2
 
 ## Solucion
 
-Se hizo una exploración de datos en un _notebook_ que puede verse [aquí](movies.ipynb).
+Se hizo una exploración de datos en un _notebook_ que puede verse [aquí](movies.ipynb) pero el trabajo definitivo se hizo con [un script](movies.py) que corrio en un equipo del CCAD. Este script permite definir parámetros desde la línea de comandos de modo de definir y probar de forma rápida diferentes combinaciones de _support_, _confidence_ y otros nuevos parámetros definidos.  
 
 ### Algunos detalles
 
@@ -22,6 +22,7 @@ Como el procesamiento requerido excede el de la computadora local se uso un equi
  - el soporte mínimo
  - la minima confianza
  - el mínimo _lift_ aceptado
+ - la calificación mínima para que se considere que un usuario recomienda una película (se probo con solo los cincos y una más extendida desde los tres en adelante)
  - el directorio donde estan los datos (en cada entorno es distinto)
  - la cantidad de transacciones a procesar. El total a procesar son más de 20.000.000 y es muy util probar solo con algunas miles de ellas para no tener que esperar tanto entre cada iteracion
 
@@ -45,6 +46,7 @@ python3 movies.py \
     --min_support=0.001 \
     --min_confidence=0.7 \
     --min_lift=4 \
+    --min_rating=3 \
     --data_folder=ml-20m
 # procesa 131.839 transacciones
 ```
