@@ -88,11 +88,10 @@ if args.truncate_ratings > 0:
 # tomo al "userid" como el identificador de transaccion.
 # Interpreto que lo cada uusario vio y valoro positivamente es un "compra"
 # Quitar el rating que no es necesario
-ratings_cleaned = ratings_good.drop(columns=['rating']).sort_values(by=['userId', 'movieId'])
 
+ratings_cleaned = ratings_good.drop(columns=['rating']).sort_values(by=['userId', 'movieId'])
 transactions = list(ratings_cleaned.groupby('userId')['movieId'].apply(list))
 
-transactions = ratings_cleaned.values.tolist()
 if args.truncate_transactions > 0:
     print('******\n******\nTRUNCATE TRANSACTIONS TO {}******\n******\n'.format(args.truncate_transactions))
     transactions = transactions[:args.truncate_transactions]
