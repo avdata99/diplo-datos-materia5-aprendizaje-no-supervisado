@@ -9,7 +9,7 @@ Hacer un pequeño informe (entre 200 y 500 palabras): https://rpubs.com/vitidN/2
 
 ## Solucion
 
-Se hizo una exploración de datos en un _notebook_ que puede verse [aquí](movies.ipynb) pero el trabajo definitivo se hizo con [un script](movies.py) que corrio en un equipo del CCAD. Este script permite definir parámetros desde la línea de comandos de modo de definir y probar de forma rápida diferentes combinaciones de _support_, _confidence_ y otros nuevos parámetros definidos.  
+Se hizo una exploración de datos en un _notebook_ que puede verse [aquí](movies.ipynb) pero el trabajo definitivo se hizo con [un script](movies.py) que corrio en un equipo del CCAD. Este script permite definir parámetros desde la línea de comandos de modo de definir y probar de forma rápida diferentes combinaciones de _support_, _confidence_ y otros nuevos parámetros definidos para este estudio.  
 
 ### Algunos detalles
 
@@ -53,7 +53,7 @@ python3 movies.py \
 
 ### Resultados
 
-Este script graba un archivo CSV con recomendaciones posibles para las películas sobre las cuales podemos recomendar. De manera simple y dado el ID de alguna película podríamos listar por nivel de confianza y _lift_ usa serie de películas recomendadas.  
+Este script graba un archivo CSV con recomendaciones posibles para las películas sobre las cuales podemos recomendar. De manera simple y dado el ID o titulo de alguna película podríamos listar por nivel de confianza y _lift_ usa serie de películas recomendadas.  
 
 ![csv_final.png](imgs/csv_final.png)
 
@@ -62,14 +62,14 @@ Este script graba un archivo CSV con recomendaciones posibles para las película
 Debido a los lento de este proceso el argumento _max_length_ se uso siempre en 2. Esto solo permite analizar las peliculas individualmente y no en grupos. Con más caṕacidad de cómputo sumplemente debe pasarse a 4 (por ejmplo) para generar recomendaciones mas complejas.
 
 ## Tiempos
-Localmente siempre con `--min_support=0.001`, `--min_confidence=0.7`, `--min_lift=4` `--truncate_transactions=1000`, `--max_length=2` y `--truncate_ratings=1000`
+Localmente siempre con `--min_support=0.001`, `--min_confidence=0.7`, `--min_lift=4`, `--max_length=2` y `--truncate_ratings=1000`
 Esto genera solo 52 transacciones y los tiempos son:
  - 54 segundos con `--max_length=2`
  - Con `--max_length=3` lo suspendí despues de una hora de procesamiento.
 
 En el CCAD y corriendo con la única limitacion `--max_length=2`
  - y `--min_rating=5` se analizan 131.839 transacciones en un tiempo total fue de 6.2 horas y genero [55 reglas](rules-sup0.001-conf0.7-length2-rating5.csv).
- - además con `--min_rating=3` se analizaron 138.445 transacciones en un tiempo total de X horas y generó [XX reglas](rules-sup0.001-conf0.7-length2-rating3.csv)
+ - además con `--min_rating=3` (se considera recomendación tambien las calificaciones de 3 en adelante) se analizaron 138.445 transacciones en un tiempo total de X horas y generó [XX reglas](rules-sup0.001-conf0.7-length2-rating3.csv).
 
 
 ## Generos
