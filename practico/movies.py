@@ -5,7 +5,7 @@ from itertools import groupby
 import os
 import csv
 from efficient_apriori import apriori
-
+import time
 import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("--min_support", type=float, help="Min support", required=True)
@@ -13,7 +13,9 @@ parser.add_argument("--max_length", type=int, default=2, help="Max length")
 parser.add_argument("--min_confidence", type=float, help="Min confidence", required=True)
 parser.add_argument("--min_lift", type=int, default=4, help="Min lift to count")
 parser.add_argument("--truncate_transactions", type=int, default=0, help="truncate total transactions (for local test)")
+parser.add_argument("--truncate_ratings", type=int, default=0, help="truncate total ratings (for local test)")
 parser.add_argument("--data_folder", type=str, help="data folder", required=True)
+parser.add_argument("--min_rating", type=int, help="Min rating to consider", default=5)
 
 args = parser.parse_args()
 
@@ -56,6 +58,8 @@ ratings_path = os.path.join(data_folder, 'ratings.csv')
 def size(obj):
     return "{0:.2f} MB".format(sys.getsizeof(obj) / (1000 * 1000))
 
+start_time = time.time()
+
 movies = pd.read_csv(movies_path)
 print('movies -- dimensions: {0};   size: {1}'.format(movies.shape, size(movies)))
 print(movies.head())
@@ -73,19 +77,26 @@ count_by_rank = ratings.groupby('rating').size()
 print(count_by_rank)
 
 # voy a tomar solo los ratings > a lo que defino
-min_rating_to_count = 5
+min_rating_to_count = args.min_rating
 ratings_good = ratings[ratings['rating'] >= min_rating_to_count]
 print('ratings_good -- dimensions: {0};   size: {1}'.format(ratings_good.shape, size(ratings_good)))
 print(ratings_good.head())
+
+if args.truncate_ratings > 0:
+    ratings_good = ratings_good[:args.truncate_ratings]
 
 # tomo al "userid" como el identificador de transaccion.
 # Interpreto que lo cada uusario vio y valoro positivamente es un "compra"
 # Quitar el rating que no es necesario
 ratings_cleaned = ratings.drop(columns=['rating']).sort_values(by=['userId', 'movieId'])
+
+transactions = list(ratings_cleaned.groupby('userId')['movieId'].apply(list))
+
 transactions = ratings_cleaned.values.tolist()
 if args.truncate_transactions > 0:
     print('******\n******\nTRUNCATE TRANSACTIONS TO {}******\n******\n'.format(args.truncate_transactions))
     transactions = transactions[:args.truncate_transactions]
+    print(transactions[0])
 print('First transaction: {}'.format(transactions[0]))
 
 print('Transacciones encontradas: {}'.format(len(transactions)))
@@ -112,8 +123,11 @@ def get_movie_title(movieId):
     return list(rows['title'])[0]
 
 selected_rules = []
+max_length_detected = 0
 for rule in rules:
     if rule.lift > args.min_lift:
+        if len(rule.lhs) + len(rule.rhs) > max_length_detected:
+            max_length_detected = len(rule.lhs) + len(rule.rhs)
         jrule = {
             'izq': rule.lhs[0],
             'izq_title': get_movie_title(rule.lhs[0]),
@@ -132,6 +146,8 @@ if len(selected_rules) == 0:
     raise Exception('NO SE ENCONTRARON REGLAS!')
 
 print('Reglas encontradas: {}'.format(len(selected_rules)))
+print('Maximo largo: {}'.format(max_length_detected))
+
 
 f = open('rules.csv', 'w')
 fieldnames = selected_rules[0].keys()
@@ -157,3 +173,6 @@ for jrule in selected_rules:
         print(txt)
 
 f.close()
+
+end_time = time.time()
+print('Elapsed: {}'.format(end_time - start_time))
