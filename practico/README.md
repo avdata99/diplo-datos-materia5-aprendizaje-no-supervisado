@@ -69,7 +69,7 @@ Esto genera solo 52 transacciones y los tiempos son:
 
 En el CCAD y corriendo con la única limitacion `--max_length=2`
  - y `--min_rating=5` se analizan 131.839 transacciones en un tiempo total fue de 6.2 horas y genero [55 reglas](rules-sup0.001-conf0.7-length2-rating5.csv).
- - además con `--min_rating=3` (se considera recomendación tambien las calificaciones de 3 en adelante) se analizaron 138.445 transacciones en un tiempo total de X horas y generó [XX reglas](rules-sup0.001-conf0.7-length2-rating3.csv).
+ - además con `--min_rating=3` (se considera recomendación tambien las calificaciones de 3 en adelante) se analizaron 138.445 transacciones en un tiempo total de (EN PROCESO DESDE HACE 12 HORAS) X horas y generó [XXX reglas](rules-sup0.001-conf0.7-length2-rating3.csv).
 
 
 ## Generos
