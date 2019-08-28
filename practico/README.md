@@ -9,13 +9,16 @@ Hacer un pequeño informe (entre 200 y 500 palabras): https://rpubs.com/vitidN/2
 
 ## Solucion
 
-Se hizo una exploración de datos en un _notebook_ que puede verse [aquí](movies.ipynb) pero el trabajo definitivo se hizo con [un script](movies.py) que corrio en un equipo del CCAD. Este script permite definir parámetros desde la línea de comandos de modo de definir y probar de forma rápida diferentes combinaciones de _support_, _confidence_ y otros nuevos parámetros definidos para este estudio.  
+Se hizo una exploración de datos en un _notebook_ que puede verse [aquí](movies.ipynb) pero el trabajo definitivo se hizo con [un script](movies.py) que corrio en un equipo del CCAD.  Esto fue debido a que la necesidad de cómputo excede las de mi computadora.  
+Este script permite definir parámetros desde la línea de comandos de modo de definir y probar de forma rápida diferentes combinaciones de _support_, _confidence_ y otros nuevos parámetros definidos para este estudio.  
 
 ## Adicional
 
 Durante el cursado de las clases utilice estas herramientas para hacer un _Market Basket Analysis_ con los datos de una vinería de Sierras Chicas. [El código y los resultados quedaron disponibles acá](https://github.com/avdata99/diplo-datos-materia5-aprendizaje-no-supervisado/tree/master/aprendizaje-no-supervisados-vineria).  
 
 ![vineria](imgs/vineria.png)
+
+Este estudio permite ver como convinan los productos los clientes de ese comercio.  
 
 ### Algunos detalles sobre la base de películas
 
