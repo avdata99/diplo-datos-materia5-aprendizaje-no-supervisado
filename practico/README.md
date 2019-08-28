@@ -18,7 +18,7 @@ Durante el cursado de las clases utilice estas herramientas para hacer un _Marke
 
 ![vineria](imgs/vineria.png)
 
-Este estudio permite ver como convinan los productos los clientes de ese comercio.  
+Este estudio permite ver como combinan los productos los clientes de ese comercio.  
 
 ### Algunos detalles sobre la base de películas
 
