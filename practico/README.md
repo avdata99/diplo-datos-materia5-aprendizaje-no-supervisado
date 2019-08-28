@@ -17,7 +17,7 @@ Durante el cursado de las clases utilice estas herramientas para hacer un _Marke
 
 ![vineria](imgs/vineria.png)
 
-### Algunos detalles sobre 
+### Algunos detalles sobre la base de películas
 
 Hay más de 27.000 películas y 20.000.000 de calificaciones de 138.000 usuarios.
 ![rating_bars](imgs/rating_bars.png)
