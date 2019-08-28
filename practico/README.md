@@ -11,7 +11,13 @@ Hacer un pequeño informe (entre 200 y 500 palabras): https://rpubs.com/vitidN/2
 
 Se hizo una exploración de datos en un _notebook_ que puede verse [aquí](movies.ipynb) pero el trabajo definitivo se hizo con [un script](movies.py) que corrio en un equipo del CCAD. Este script permite definir parámetros desde la línea de comandos de modo de definir y probar de forma rápida diferentes combinaciones de _support_, _confidence_ y otros nuevos parámetros definidos para este estudio.  
 
-### Algunos detalles
+## Adicional
+
+Durante el cursado de las clases utilice estas herramientas para hacer un _Market Basket Analysis_ con los datos de una vinería de Sierras Chicas. [El código y los resultados quedaron disponibles acá](https://github.com/avdata99/diplo-datos-materia5-aprendizaje-no-supervisado/tree/master/aprendizaje-no-supervisados-vineria).  
+
+![vineria](imgs/vineria.png)
+
+### Algunos detalles sobre 
 
 Hay más de 27.000 películas y 20.000.000 de calificaciones de 138.000 usuarios.
 ![rating_bars](imgs/rating_bars.png)
@@ -46,7 +52,7 @@ python3 movies.py \
     --min_support=0.001 \
     --min_confidence=0.7 \
     --min_lift=4 \
-    --min_rating=3 \
+    --min_rating=4 \
     --data_folder=ml-20m
 # procesa 131.839 transacciones
 ```
@@ -69,7 +75,7 @@ Esto genera solo 52 transacciones y los tiempos son:
 
 En el CCAD y corriendo con la única limitacion `--max_length=2`
  - y `--min_rating=5` se analizan 131.839 transacciones en un tiempo total fue de 6.2 horas y genero [55 reglas](rules-sup0.001-conf0.7-length2-rating5.csv).
- - además con `--min_rating=3` (se considera recomendación tambien las calificaciones de 3 en adelante) se analizaron 138.445 transacciones en un tiempo total de (EN PROCESO DESDE HACE 12 HORAS) X horas y generó [XXX reglas](rules-sup0.001-conf0.7-length2-rating3.csv).
+ - además con `--min_rating=4` (se considera recomendación tambien las calificaciones de 3 en adelante) se analizaron 138.287 transacciones en un tiempo total de 40 horas y generó [2157 reglas](rules-sup0.001-conf0.7-length2-rating4.csv).
 
 
 ## Generos
